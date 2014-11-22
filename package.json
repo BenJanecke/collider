@@ -1,0 +1,15 @@
+{
+  "name": "atomic-design-roller",
+  "version": "1.0.0",
+  "description": "A very basic scaffold for some pattern lab style atomic design",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:BenJanecke/atomic-design-roller.git"
+  },
+  "author": "Ben Janecke",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/BenJanecke/atomic-design-roller/issues"
+  },
+  "homepage": "https://github.com/BenJanecke/atomic-design-roller"
+}
