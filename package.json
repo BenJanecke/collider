@@ -6,10 +6,17 @@
     "type": "git",
     "url": "git@github.com:BenJanecke/atomic-design-roller.git"
   },
+  "scripts": {
+    "build": "node index.js"
+  },
   "author": "Ben Janecke",
   "license": "GPLv3",
   "bugs": {
     "url": "https://github.com/BenJanecke/atomic-design-roller/issues"
   },
-  "homepage": "https://github.com/BenJanecke/atomic-design-roller"
+  "homepage": "https://github.com/BenJanecke/atomic-design-roller",
+  "dependencies": {
+    "metalsmith": "^0.5.0",
+    "metalsmith-sass": "^0.5.0"
+  }
 }

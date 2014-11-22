@@ -1,5 +1,14 @@
 # ATOMIC-DESIGN-ROLLER
 
+## Getting Started
+
+```
+  npm install
+  npm build
+```
+
+## What is the roller?
+
 This is a simple generator for a styleguide and its related css
 
 Given a directory tree like this
