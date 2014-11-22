@@ -5,6 +5,7 @@
 ```
   npm install
   npm build
+  Thats It :) 
 ```
 
 ## What is the roller?
