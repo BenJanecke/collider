@@ -14,7 +14,7 @@ var fs = require('fs')
   'pages' ].forEach(function (typeOfMatter) {
     gulp.task(typeOfMatter, function() {
       gulp.src('style-guide/' + typeOfMatter + '/**/*.html')
-          .pipe(header('<div class="matter-item">'))
+          .pipe(header('<div class="styleguide--matter-item">'))
           .pipe(footer('</div>'))
           .pipe(concat(typeOfMatter + '.html'))
           .pipe(gulp.dest('build/matter/'))
