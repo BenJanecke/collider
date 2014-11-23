@@ -1,4 +1,4 @@
-# ATOMIC-DESIGN-ROLLER
+# COLLIDER
 
 ## Getting Started
 
@@ -10,7 +10,7 @@
   Thats It :) 
 ```
 
-## What is the roller?
+## What is the collider?
 
 This is a simple generator for a styleguide and its related css
 
