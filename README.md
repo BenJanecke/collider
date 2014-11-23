@@ -30,7 +30,6 @@ When you want to do something like create a atom for a input
   /-atoms
     /-fancy-input
       -fancy-input.scss
-      -fancy-input.doc
       -fancy-input.html
 ```
 

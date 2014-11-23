@@ -3,6 +3,7 @@ var fs = require('fs')
   , header = require('gulp-header')
   , footer = require('gulp-footer')
   , concat = require('gulp-concat')
+  , sass = require('gulp-sass')
   , del = require('del')
   , serve = require('gulp-serve');
 
@@ -20,7 +21,7 @@ var fs = require('fs')
   });
 });
 
-gulp.task('build', function () {
+gulp.task('build-matter', function () {
   var head
     , foot
     , matter;
@@ -37,7 +38,17 @@ gulp.task('build', function () {
       .pipe(footer(foot))
       .pipe(gulp.dest('build'));
 
-})
+});
+
+gulp.task('build-styles', function () {
+  gulp.src('./style-guide/**/*.scss')
+      .pipe(sass())
+      .pipe(gulp.dest('./build/css'));
+});
+
+gulp.task('cleanup', function (done) {
+  del('./build/matter', done);
+});
 
 gulp.task('collide', [
   'atoms',
@@ -45,8 +56,10 @@ gulp.task('collide', [
   'organisms',
   'templates',
   'pages',
-  'build'
-], function (done) {
+  'build-matter',
+  'build-styles',
+  'cleanup'
+], function () {
 });
 
 gulp.task('serve', serve('build'));
