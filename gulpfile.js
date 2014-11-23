@@ -6,7 +6,7 @@ var fs = require('fs')
   , sass = require('gulp-sass')
   , del = require('del')
   , serve = require('gulp-serve')
-  , matter = [ 'atoms', 'molecules', 'organisms', 'templates', 'pages' ];
+  , matter = [ 'Atoms', 'Molecules', 'Organisms', 'Templates', 'Pages' ];
 
 matter.forEach(function (typeOfMatter) {
     gulp.task(typeOfMatter, function() {
@@ -14,7 +14,7 @@ matter.forEach(function (typeOfMatter) {
                  .pipe(header('<div class="styleguide--matter-item">'))
                  .pipe(footer('</div>'))
                  .pipe(concat(typeOfMatter + '.html'))
-                 .pipe(header('<div id="<%= type %>">', { "type": typeOfMatter }))
+                 .pipe(header('<div id="<%= type %>"><h1 class="styleguide--heading"><%= type %></h1><hr/>', { "type": typeOfMatter }))
                  .pipe(footer('</div>'))
                  .pipe(gulp.dest('build/matter/'));
   });
@@ -50,11 +50,11 @@ gulp.task('cleanup', [ 'materialize' ], function (done) {
 });
 
 gulp.task('collide', [
-  'atoms',
-  'molecules',
-  'organisms',
-  'templates',
-  'pages',
+  'Atoms',
+  'Molecules',
+  'Organisms',
+  'Templates',
+  'Pages',
   'materialize',
   'build-styles',
   'cleanup'
