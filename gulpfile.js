@@ -13,11 +13,11 @@ var fs = require('fs')
   'templates',
   'pages' ].forEach(function (typeOfMatter) {
     gulp.task(typeOfMatter, function() {
-      return gulp.src('style-guide/' + typeOfMatter + '/**/*.html')
-                 .pipe(concat(typeOfMatter + '.html'))
-                 .pipe(gulp.dest('build/matter/'))
-                 .pipe(header('<div id="<%= type %>">', { "type": typeOfMatter }))
-                 .pipe(footer('</div>'))
+      gulp.src('style-guide/' + typeOfMatter + '/**/*.html')
+          .pipe(concat(typeOfMatter + '.html'))
+          .pipe(gulp.dest('build/matter/'))
+          .pipe(header('<div id="<%= type %>">', { "type": typeOfMatter }))
+          .pipe(footer('</div>'))
   });
 });
 
@@ -32,22 +32,18 @@ gulp.task('build-matter', function () {
    return './build/matter/' + type + '.html'
   });
 
-  gulp.src(matter)
-      .pipe(concat('style-guide.html'))
-      .pipe(header(head))
-      .pipe(footer(foot))
-      .pipe(gulp.dest('build'));
+  return gulp.src(matter)
+             .pipe(concat('style-guide.html'))
+             .pipe(header(head))
+             .pipe(footer(foot))
+             .pipe(gulp.dest('build'));
 
 });
 
 gulp.task('build-styles', function () {
-  gulp.src('./style-guide/**/*.scss')
-      .pipe(sass())
-      .pipe(gulp.dest('./build/css'));
-});
-
-gulp.task('cleanup', function (done) {
-  del('./build/matter', done);
+  return gulp.src('./style-guide/**/*.scss')
+             .pipe(sass())
+             .pipe(gulp.dest('./build/css'));
 });
 
 gulp.task('collide', [
@@ -57,8 +53,7 @@ gulp.task('collide', [
   'templates',
   'pages',
   'build-matter',
-  'build-styles',
-  'cleanup'
+  'build-styles'
 ], function () {
 });
 
