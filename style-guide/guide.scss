@@ -1,0 +1,31 @@
+@import 'mixins';
+
+.main-nav {
+  list-style: none;
+  display: block;
+  float: left;
+  width: 100%;
+  background-color: #333;
+  @include clearfix;
+}
+
+.main-nav li {
+  float: left;
+  border-right: #FFF solid 2px;
+}
+
+.main-nav li a {
+  color: #FFF;
+  padding: {
+    left: 0.4em;
+    right: 0.4em;
+    top: 0.5em;
+    bottom: 0.5em;
+  }
+  display: block;
+  text-decoration: none;
+}
+
+.main-nav li a:hover {
+  background-color: #444;
+}
