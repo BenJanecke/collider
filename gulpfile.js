@@ -5,36 +5,33 @@ var fs = require('fs')
   , concat = require('gulp-concat')
   , sass = require('gulp-sass')
   , del = require('del')
-  , serve = require('gulp-serve');
+  , serve = require('gulp-serve')
+  , matter = [ 'atoms', 'molecules', 'organisms', 'templates', 'pages' ];
 
-[ 'atoms',
-  'molecules',
-  'organisms',
-  'templates',
-  'pages' ].forEach(function (typeOfMatter) {
+matter.forEach(function (typeOfMatter) {
     gulp.task(typeOfMatter, function() {
-      gulp.src('style-guide/' + typeOfMatter + '/**/*.html')
-          .pipe(header('<div class="styleguide--matter-item">'))
-          .pipe(footer('</div>'))
-          .pipe(concat(typeOfMatter + '.html'))
-          .pipe(gulp.dest('build/matter/'))
-          .pipe(header('<div id="<%= type %>">', { "type": typeOfMatter }))
-          .pipe(footer('</div>'));
+      return gulp.src('style-guide/' + typeOfMatter + '/**/*.html')
+                 .pipe(header('<div class="styleguide--matter-item">'))
+                 .pipe(footer('</div>'))
+                 .pipe(concat(typeOfMatter + '.html'))
+                 .pipe(gulp.dest('build/matter/'))
+                 .pipe(header('<div id="<%= type %>">', { "type": typeOfMatter }))
+                 .pipe(footer('</div>'));
   });
 });
 
-gulp.task('build-matter', function () {
+gulp.task('materialize', matter, function () {
   var head
     , foot
-    , matter;
+    , matterFiles;
 
   head = fs.readFileSync(__dirname + '/style-guide/header.html', { "encoding": "utf-8" });
   foot = fs.readFileSync(__dirname + '/style-guide/footer.html', { "encoding": "utf-8" });
-  matter = [ 'atoms', 'molecules', 'organisms', 'templates', 'pages' ].map(function (type) {
+  matterFiles = matter.map(function (type) {
    return './build/matter/' + type + '.html'
   });
 
-  return gulp.src(matter)
+  return gulp.src(matterFiles)
              .pipe(concat('style-guide.html'))
              .pipe(header(head))
              .pipe(footer(foot))
@@ -48,14 +45,19 @@ gulp.task('build-styles', function () {
              .pipe(gulp.dest('./build/css'));
 });
 
+gulp.task('cleanup', [ 'materialize' ], function (done) {
+  del('./build/matter', done);
+});
+
 gulp.task('collide', [
   'atoms',
   'molecules',
   'organisms',
   'templates',
   'pages',
-  'build-matter',
-  'build-styles'
+  'materialize',
+  'build-styles',
+  'cleanup'
 ], function () {
 });
 
