@@ -14,9 +14,9 @@ matter.forEach(function (typeOfMatter) {
                  .pipe(header('<div class="styleguide--matter-item">'))
                  .pipe(footer('</div>'))
                  .pipe(concat(typeOfMatter + '.html'))
-                 .pipe(gulp.dest('build/matter/'))
                  .pipe(header('<div id="<%= type %>">', { "type": typeOfMatter }))
-                 .pipe(footer('</div>'));
+                 .pipe(footer('</div>'))
+                 .pipe(gulp.dest('build/matter/'));
   });
 });
 
