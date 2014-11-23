@@ -4,7 +4,9 @@
 
 ```
   npm install
-  npm build
+  gulp collide
+  gulp serve
+  visit http://localhost:3000/style-guide.html
   Thats It :) 
 ```
 
