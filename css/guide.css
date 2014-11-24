@@ -1,0 +1,71 @@
+.styleguide--head:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.styleguide--header {
+  font-size: 2em;
+  color: #333; }
+
+.styleguide--subheader {
+  font-size: 1.5em;
+  color: #333; }
+
+.styleguide--main-nav {
+  list-style: none;
+  display: block;
+  float: left;
+  width: 100%;
+  background-color: #333; }
+
+.styleguide--main-nav li {
+  float: left; }
+
+.styleguide--main-nav li a {
+  color: #FFF;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  display: block;
+  text-decoration: none; }
+
+.styleguide--main-nav li a:hover {
+  background-color: #444; }
+
+.styleguide--matter-item {
+  display: block;
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.5em;
+  padding-bottom: 3em; }
+  .styleguide--matter-item:after {
+    content: "";
+    display: table;
+    clear: both; }
+
+.styleguide--container {
+  width: 100%;
+  display: block;
+  float: left; }
+
+.styleguide--colour-block {
+  display: block;
+  float: left;
+  margin-bottom: 1em; }
+
+.styleguide--colour-block-text {
+  display: block;
+  float: left;
+  width: 100%; }
+
+.styleguide--colour-block-colour {
+  border: solid 1px #333;
+  width: 4em;
+  height: 4em;
+  margin: 0 auto;
+  float: left; }
+  .styleguide--colour-block-colour:after {
+    content: "";
+    display: table;
+    clear: both; }
