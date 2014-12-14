@@ -20,6 +20,7 @@
     "gulp-header": "^1.2.2",
     "gulp-footer": "^1.0.5",
     "gulp-concat": "^2.4.2",
+    "gulp-plumber": "0.6.6",
     "gulp-sass": "1.1.0",
     "gulp-watch": "3.0.0",
     "del": "^0.1.3",

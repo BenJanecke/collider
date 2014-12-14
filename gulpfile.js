@@ -7,6 +7,7 @@ var fs = require('fs')
   , del = require('del')
   , serve = require('gulp-serve')
   , watch = require('gulp-watch')
+  , plumber = require('gulp-plumber')
   , matter = [ 'Atoms', 'Molecules', 'Organisms', 'Templates', 'Pages' ];
 
 matter.forEach(function (typeOfMatter) {
@@ -42,6 +43,7 @@ gulp.task('materialize', matter, function () {
 
 gulp.task('build-styles', function () {
   return gulp.src('./style-guide/**/*.scss')
+             .pipe(plumber())
              .pipe(sass())
              .pipe(gulp.dest('./build/css'));
 });
