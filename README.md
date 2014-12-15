@@ -4,7 +4,7 @@
 
 ```
   npm install
-  gulp collide
+  gulp collide or gulp collide-forever
   gulp serve
   visit http://localhost:3000/style-guide.html
   Thats It :) 
